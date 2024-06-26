@@ -1,0 +1,239 @@
+body {
+    width: 100%;
+    height: 100%;
+    background-color: lightgray;
+  }
+  .main_body {
+    /* background-color: gray; */
+    width: 100%;
+  }
+  .title {
+    width: 90%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    /* background-color: gray; */
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+  /* .container {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+  } */
+  .product_container {
+    /* width: 100%; */
+    /* background-color: gray; */
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  #product_category {
+    /* width: 18%; */
+    /* width: 550px; */
+    background-color: white;
+  }
+  #add {
+    background-color: rgb(222, 222, 222);
+  }
+  #add_button {
+    padding: 0;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+  }
+  #add_button p {
+    margin-top: 2px;
+    font-weight: 600;
+    color: black;
+  }
+  #product {
+    width: 80%;
+    padding: 10px;
+    background-color: white;
+  }
+  
+  #product a, #product h4{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .product_name {
+    width: 100%;
+    margin-top: 5px;
+  }
+  .product_item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    flex-wrap: wrap;
+    /* width: 100%; */
+    /* background-color: gray; */
+  }
+  .product_item img {
+    width: 250px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  .remove_button {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 100px; Adjust margin as needed */
+  }
+  
+  .remove_button form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .remove_button button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .remove_button button:hover {
+    background-color: #c82333;
+  }
+  
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #c82333;
+  }
+
+
+
+
+/* productsale */
+.productsale{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    width: 75%;
+    background-color: white;
+}
+  .sale-container img{
+    display: flex;
+    width: 40%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 10px;
+    border-radius: 50%;
+  }
+  .sale-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(170, 170, 170);
+    /* background-color: white; */
+  }
+.product_image{
+    /* width: 200px;
+    height: 200px; */
+
+    width: 25%;
+    /* background-color: gray; */
+}
+.product_image img{
+width: 200px;
+}
+  .saletext{
+    /* background-color: gray; */
+    width: 70%;
+    height: 200px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    
+  }
+  /* .productsale img{
+    width: 30%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 10px;
+    border-radius: 50%;
+  } */
+  /* variation/addons container */
+  .option{
+    /* background-color: aqua; */
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+  }
+
+
+  .variation{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background-color: #dc3545; */
+    width: 100%;
+  }
+
+  .variation img{
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    /* height: 20%; */
+    width: 80px;
+    transition: .3s;
+  }
+  .variation img:hover{
+    
+    transform: scale(110%);
+  }
+  .addons{
+    
+    width: 100%;
+    /* background-color: #dc3545; */
+  }
+  .addons h3{
+    margin-top: 10px;
+    width: 50%;
+  }
+.variation_radio{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.variation_radio input{
+  margin-right: 5px;
+}
+.variation_radio label{
+  margin-right: 10px;
+}
+  /* .variation img:hover{
+    width: 150px;
+  } */

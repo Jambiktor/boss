@@ -1,0 +1,183 @@
+body {
+  background-color: lightgray;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Main body container */
+.mainbody {
+  position: relative;
+  width: 100%;
+  height: 500px;
+
+}
+
+.mainbody img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* About section */
+.about {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.intro_about{
+  background-color: #333;
+  height: 500px;
+  width: 100%;
+}
+
+.intro_about p{
+  /* background-color: aqua; */
+  color: white;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.intro_about h1{
+  padding-top: 60px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.milktea_container{
+  width: 100%;
+  /* background-color: aqua; */
+}
+
+.milktea{
+  /* background-color: blueviolet; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.milktea_variants{
+  /* background-color: yellow; */
+  margin: 10px;
+}
+.milktea img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.milktea_container h1{
+  font-style: italic;
+  font-family: Montserrat;
+  font-size:70px;
+  /* background-color: aqua; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.title h3{
+  font-family: fantasy;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body > nav > div.right_body > div > a > button{
+  background-color: red;
+  height: 40px;
+  width: 100%;
+  margin-right: 50px;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+.loginbutton button{
+  color: white;
+}
+
+
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center; 
+  padding: 20px 10px; 
+  height: 300px;
+}
+
+.footer_content {
+  max-width: 800px; 
+  margin: 0 auto;
+}
+
+.footer h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px; 
+}
+
+.footer p {
+  font-size: 1rem;
+  margin: 5px 0; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer h1 {
+      font-size: 2rem; /* Adjust heading size for tablets */
+  }
+
+  .footer p {
+      font-size: 0.9rem; /* Adjust text size for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer h1 {
+      font-size: 1.5rem; /* Adjust heading size for mobile */
+  }
+
+  .footer p {
+      font-size: 0.8rem; /* Adjust text size for mobile */
+  }
+}
+
+
+
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .mainbody {
+    height: 300px;
+  }
+  .about {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainbody {
+    height: 200px;
+  }
+  .about {
+    width: 95%;
+    padding: 5px;
+  }
+}

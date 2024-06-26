@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  /* width: 100dvw; */
+}
+
+body {
+  /* background: rgb(218, 218, 125); */
+  /* height: 200%; */
+  overflow-x: hidden;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+
+/* navigation bar */
+nav {
+  /* height: 65px; */
+  background: gray;
+}
+.nav_bar {
+  /* height: 500vh; */
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  /* position: fixed; */
+  /* justify-content: start; */
+  /* align-items: center; */
+  background-color: rgb(58, 58, 58);
+  /* border-right: 2px solid black; */
+}
+
+body > nav > button {
+  height: 65px;
+  background: transparent;
+}
+.nav h1 {
+  /* font-style: italic; */
+  font-size: 30px;
+  margin-top: 35px;
+  margin-left: 20px;
+  color: rgb(251, 251, 251);
+}
+.logo_toggler {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 180px; */
+  /* background-color: wheat; */
+}
+.logo_toggler h2 {
+  margin-top: 5px;
+  color: white;
+}
+.logo_toggler img {
+  width: 40px;
+  border-radius: 50%;
+}
+.logo_toggler i {
+  margin-right: 10px;
+  font-size: 30px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+#offcanvasTopLabel {
+  font-size: 30px;
+}
+#offcanvasTopLabel img {
+  margin-left: 5px;
+  width: 50px;
+  border-radius: 50%;
+}
+#offcanvasTop > div.offcanvas-header {
+  background-color: rgb(233, 233, 233);
+}
+.tab {
+  /* position: absolute; */
+  /* left: 0; */
+  /* margin-left: 20px; */
+  display: flex;
+  /* margin-top: 100px; */
+  flex-direction: column;
+}
+
+.tab a {
+  /* margin-left: 60px; */
+  width: 100%;
+  left: 0;
+  font-size: 18px;
+  border: none;
+  /* font-family: "Arial Narrow", Arial; */
+  /* font-style: italic; */
+  padding: 10px;
+  color: black;
+  /* margin-top: 10px; */
+  margin-bottom: 10px;
+  /* border-radius: 5px; */
+  text-decoration: none;
+  border-bottom: 2px solid rgb(174, 174, 174);
+  transition: 0.2s;
+}
+.tab a:hover {
+  background: rgb(223, 223, 223);
+  color: rgb(97, 97, 97);
+}
+
+#dropdownMenuButton1 {
+  /* margin-top: 10px; */
+  /* margin-top: 70px; */
+  /* background-color: aqua; */
+  /* margin-left: 1000px; */
+  /* padding-top: 10px; */
+  height: 70px;
+  /* width: 800px; */
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+#dropdown {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+}
+
+/* .user_tab {
+      height: 50px;
+      background-color: gra;
+    } */
+/* .user_tab */
+/* form {
+    padding-top: 0%;
+    border: none;
+  
+  } */
+.dropdown_container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: column;
+  margin-left: 20px;
+  width: 90%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  border: 1px solid black;
+}
+.user_tab form button {
+  right: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(255, 0, 0);
+  border-radius: 5px;
+  border: none;
+}
+li {
+  width: 100%;
+  /* border-radius: 5px; */
+  /* background-color: gray; */
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-bottom: 1px solid black;
+}
+li a {
+  margin-right: 0px;
+}
+.user {
+  /* position: absolute; */
+  top: 0;
+  height: 50px;
+  width: 200px;
+  margin-left: 10px;
+  /* z-index: -1; */
+  background-color: white;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  right: 0;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+.user .user_name {
+  /* padding: 40px; */
+  height: 40px;
+  width: 120px;
+  /* z-index: -1; */
+  /* background-color: gray; */
+  margin-right: 10px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.user .user_name p {
+  color: black;
+  right: 0;
+}
+.user:hover {
+  background: rgb(240, 240, 240);
+}
+
+.user p {
+  /* z-index: -1; */
+  /* color: black; */
+  margin-right: 20px;
+  margin-top: 10px;
+}
+.user .user_photo {
+  height: 40px;
+  width: 40px;
+  background: rgb(104, 104, 104);
+  /* z-index: -1; */
+  margin-right: 10px;
+  border-radius: 50%;
+}
+/* footer  */
+footer {
+  width: 100%;
+}
+.footer {
+  background-color: rgb(34, 34, 34);
+  width: 100%;
+  height: 70px;
+}
+
+.footer p {
+  /* background: rgb(54, 31, 1);  */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+}
