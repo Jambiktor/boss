@@ -2,6 +2,19 @@
 include('connection.php');
 include('sessioncheck.php');
 include('header.php');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm_order'])) {
+    $order_number = $_POST['order_number'];
+
+    $sql_update = "UPDATE order_table SET status = 'completed' WHERE order_number = ?";
+    $stmt_update = $conn->prepare($sql_update);
+    $stmt_update->bind_param("i", $order_number);
+    $stmt_update->execute();
+    $stmt_update->close();
+
+    header("Location: admin_prepairing_order.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -139,96 +152,64 @@ include('header.php');
 
     <div class="main_body rounded p-2 my-3">
         <div class="cart_header rounded p-2">
-            <a class="rounded py-2 me-2 " href="admin_completed_order.php">
+            <a class="rounded py-2 me-2 " href="admin_pendings_order.php">
                 <p class="m-0 fw-bolder">Pendings</p>
             </a>
             <a class="rounded py-2 active" href="admin_prepairing_order.php">
-                <p class="m-0 fw-bolder">Prepairing</p>
+                <p class="m-0 fw-bolder">Preparing</p>
             </a>
             <a class="rounded py-2 " href="admin_completed_order.php">
                 <p class="m-0 fw-bolder">Completed</p>
             </a>
         </div>
+    </div>
 
+    <div class="cart_container rounded p-2 mt-2">
+        <?php
+        $query = "SELECT * FROM order_table WHERE status = 'Preparing'"; // Filter by status
+        $result = $conn->query($query);
 
-
-
-
-        <a class="Atags" href="admin_address_payment.php">
-            <div class="cart_container rounded p-2 mt-2">
-                <div class="cart_item rounded p-2 my-2 mx-2">
-                    <div class="w-100 pro duct_id_container justify-content-space-between d-flex align-items-start ">
-                        <div class="w-100 d-flex align-items-start flex-column">
-                            <div class="product_details">
-                                <div>
-                                    <h5>Product ID</h5>
-                                </div>
-                                <div>
-                                    <p class="mt-0" style="color: gray;">Prepairing</p>
-                                </div>
-                            </div>
-                            <div class="product_photo">
-                                <img class="rounded" src="images\3.png" alt="">
-                                <div class="product_description ms-2 mt-1" style="">
-                                    <h5>Product Name</h5>
-                                    <p class="m-0">₱ 00.00</p>
-                                    <p class="m-0 mt-2">Quantity: 00</p>
-                                </div>
-                            </div>
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+        ?>
+        <div class="cart_item rounded p-2 my-2 mx-2">
+            <div class="w-100 product_id_container justify-content-space-between d-flex align-items-start">
+                <div class="w-100 d-flex align-items-start flex-column">
+                    <div class="product_details">
+                        <div>
+                            <h5>Order id: <?php echo $row['order_number']; ?></h5>
                         </div>
+                        <form action="" method="post">
+                            <div>
+                                <input type="hidden" name="order_number" value="<?php echo $row['order_number']; ?>">
+                                <button class="btn btn-success" type="submit" name="confirm_order">Confirm</button>
+                            </div>
+                        </form>
                     </div>
-                </div>
-
-
-                <div class="cart_item rounded p-2 my-2 mx-2">
-                    <div class="w-100 pro duct_id_container justify-content-space-between d-flex align-items-start ">
-                        <div class="w-100 d-flex align-items-start flex-column">
-                            <div class="product_details">
-                                <div>
-                                    <h5>Product ID</h5>
-                                </div>
-                                <div>
-                                    <p class="mt-0" style="color: gray;">Prepairing</p>
-                                </div>
-                            </div>
-                            <div class="product_photo">
-                                <img class="rounded" src="images\3.png" alt="">
-                                <div class="product_description ms-2 mt-1" style="">
-                                    <h5>Product Name</h5>
-                                    <p class="m-0">₱ 00.00</p>
-                                    <p class="m-0 mt-2">Quantity: 00</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart_item rounded p-2 my-2 mx-2">
-                    <div class="w-100 pro duct_id_container justify-content-space-between d-flex align-items-start ">
-                        <div class="w-100 d-flex align-items-start flex-column">
-                            <div class="product_details">
-                                <div>
-                                    <h5>Product ID</h5>
-                                </div>
-                                <div>
-                                    <p class="mt-0" style="color: gray;">Prepairing</p>
-                                </div>
-                            </div>
-                            <div class="product_photo">
-                                <img class="rounded" src="images\3.png" alt="">
-                                <div class="product_description ms-2 mt-1" style="">
-                                    <h5>Product Name</h5>
-                                    <p class="m-0">₱ 00.00</p>
-                                    <p class="m-0 mt-2">Quantity: 00</p>
-                                </div>
-                            </div>
+                    <div class="product_photo">
+                        <img class="rounded" src="product-images/<?php echo $row['image_file']; ?>" alt="">
+                        <div class="product_description ms-2 mt-1">
+                            <h5><?php echo $row['product_name']; ?></h5>
+                            <p class="m-0">₱ <?php echo $row['price']; ?></p>
+                            <p class="m-0 mt-2">Quantity: <?php echo $row['quantity']; ?></p>
                         </div>
                     </div>
                 </div>
             </div>
-        </a>
-        <footer class="footer">
-            <p>asdasdasdasd</p>
-        </footer>
+        </div>
+        <?php
+            }
+        } else {
+            echo '<p style="height: 200px;">No products found.</p>';
+        }
+        $conn->close();
+        ?>
+    </div>
+
+
+    <footer class="footer">
+        <p>asdasdasdasd</p>
+    </footer>
 </body>
 
 </html>

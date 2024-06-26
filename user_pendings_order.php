@@ -148,90 +148,63 @@ include('header.php');
                 <p class="m-0 fw-bolder">Completed</p>
             </a>
         </div>
+    </div>
 
 
 
 
-        <a class="Atags" href="admin_address_payment.php">
-            <div class="cart_container rounded p-2 mt-2">
-                <div class="cart_item rounded p-2 my-2 mx-2">
-                    <div class="w-100 pro duct_id_container justify-content-space-between d-flex align-items-start ">
-                        <div class="w-100 d-flex align-items-start flex-column">
-                            <div class="product_details">
-                                <div>
-                                    <h5>Product ID</h5>
-                                </div>
-                                <div>
-                                    <p class="mt-0" style="color: gray;">Waiting for response</p>
-                                </div>
-                            </div>
-                            <div class="product_photo">
-                                <img class="rounded" src="images\3.png" alt="">
-                                <div class="product_description ms-2 mt-1" style="">
-                                    <h5>Product Name</h5>
-                                    <p class="m-0">₱ 00.00</p>
-                                    <p class="m-0 mt-2">Quantity: 00</p>
-                                </div>
-                            </div>
+    <div class="cart_container rounded p-2 mt-2">
+        <?php
+        $query = "SELECT * FROM order_table WHERE status = 'placed'"; // Filter by status
+        $result = $conn->query($query);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+        ?>
+        <div class="cart_item rounded p-2 my-2 mx-2">
+            <div class="w-100 product_id_container justify-content-space-between d-flex align-items-start">
+                <div class="w-100 d-flex align-items-start flex-column">
+                    <div class="product_details">
+                        <div>
+                            <h5>Order id: <?php echo $row['order_number']; ?></h5>
                         </div>
+                        <form action="" method="post">
+                            <div>
+                                <input type="hidden" name="order_number" value="<?php echo $row['order_number']; ?>">
+                                <p>Waiting for confirmation</p>
+                            </div>
+                        </form>
                     </div>
-                </div>
-
-
-                <div class="cart_item rounded p-2 my-2 mx-2">
-                    <div class="w-100 pro duct_id_container justify-content-space-between d-flex align-items-start ">
-                        <div class="w-100 d-flex align-items-start flex-column">
-                            <div class="product_details">
-                                <div>
-                                    <h5>Product ID</h5>
-                                </div>
-                                <div>
-                                    <p class="mt-0" style="color: gray;">Waiting for response</p>
-                                </div>
-                            </div>
-                            <div class="product_photo">
-                                <img class="rounded" src="images\3.png" alt="">
-                                <div class="product_description ms-2 mt-1" style="">
-                                    <h5>Product Name</h5>
-                                    <p class="m-0">₱ 00.00</p>
-                                    <p class="m-0 mt-2">Quantity: 00</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart_item rounded p-2 my-2 mx-2">
-                    <div class="w-100 pro duct_id_container justify-content-space-between d-flex align-items-start ">
-                        <div class="w-100 d-flex align-items-start flex-column">
-                            <div class="product_details">
-                                <div>
-                                    <h5>Product ID</h5>
-                                </div>
-                                <div>
-                                    <p class="mt-0" style="color: gray;">Waiting for response</p>
-                                </div>
-                            </div>
-                            <div class="product_photo">
-                                <img class="rounded" src="images\3.png" alt="">
-                                <div class="product_description ms-2 mt-1" style="">
-                                    <h5>Product Name</h5>
-                                    <p class="m-0">₱ 00.00</p>
-                                    <p class="m-0 mt-2">Quantity: 00</p>
-                                </div>
-                            </div>
+                    <div class="product_photo">
+                        <img class="rounded" src="product-images/<?php echo $row['image_file']; ?>" alt="">
+                        <div class="product_description ms-2 mt-1">
+                            <h5><?php echo $row['product_name']; ?></h5>
+                            <p class="m-0">₱ <?php echo $row['price']; ?></p>
+                            <p class="m-0 mt-2">Quantity: <?php echo $row['quantity']; ?></p>
                         </div>
                     </div>
                 </div>
             </div>
-        </a>
-        <footer class="footer">
-            <div class="footer_content">
-                <a href="contact.php">Contact us</a>
-                <p>1234 Takoyaki Street, Osaka, Japan</p>
-                <p>Email: info@takoyaki.jp | Phone: +81 123-456-7890</p>
-                <p>&copy; 2024 Takozaki. All rights reserved.</p>
-            </div>
-        </footer>
+        </div>
+        <?php
+            }
+        } else {
+            echo '<p style="height: 200px;">No products found.</p>';
+        }
+        $conn->close();
+        ?>
+    </div>
+
+
+
+    <footer class="footer">
+        <div class="footer_content">
+            <a href="contact.php">Contact us</a>
+            <p>1234 Takoyaki Street, Osaka, Japan</p>
+            <p>Email: info@takoyaki.jp | Phone: +81 123-456-7890</p>
+            <p>&copy; 2024 Takozaki. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
